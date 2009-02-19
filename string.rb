@@ -9,4 +9,9 @@ class String
   def underscorize
     self.downcase.gsub(/\s+/, '_')
   end
+
+  # undos underscorize
+  def normalize
+    self.split(/_+/).map(&:capitalize).join(' ')
+  end
 end
