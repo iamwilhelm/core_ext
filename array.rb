@@ -48,4 +48,19 @@ class Array
     return frequency_hash
   end
 
+  # the ability to respond to what to do in case an array is empty.  This is useful
+  # in being able to display a message if the array is empty.
+  #
+  #   <% @friends.each do |friend| -%>
+  #     <li><%= h friend.username %></li>
+  #   <% end.empty do -%>
+  #     No friends yet
+  #   <% end -%>
+  def empty(message = "")
+    if self.empty?
+      return block_given? ? (yield message) : message
+    end
+  end
+
+
 end
